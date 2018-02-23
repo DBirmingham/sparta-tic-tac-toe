@@ -1,11 +1,11 @@
-//welcome players
-//Start turn 1
-//React to click prompts 
+//welcome players y
+//Start turn 1 y
+//React to click prompts y
 //Check if the same space is being clicked
 //Check if the game has been won
-//reset board
+//reset board y
 var gameData = {
-		player: '',
+		player: 'X',
 		testTurn: '',
 		tictactoe: false
 	}
@@ -36,26 +36,26 @@ var a = $('td').on('click', function(event){
 });
 
 $('td').on('click', function(event){
-	console.log($(this))
-	if (gameData.player == '') {
-		gameData.player = 'X';
-		$(this).addClass('X');
-		$(this).html('X');
-		//xPlay();
-	}
-	switch(gameData.player){
-		case 'X':
-		gameData.player = 'O';
-		$(this).addClass('X');
-		$(this).html('X');
-		//xPlay();
-		break;
-		case 'O':
-		gameData.player = 'X';
-		$(this).addClass('O');
-		$(this).html('O');
-		//oPlay();
-		break;
+	console.log(gameData.player)
+	if ($(this).html()){
+		$('.gameMessage').html('You can\'t do that')
+	} else {
+		switch(gameData.player){
+			case 'X':
+				gameData.player = 'O';
+				$(this).addClass('X');
+				$(this).html('X');
+				$('.gameMessage').html('Welcome to Sparta TicTacToe!')
+			//xPlay();
+			break;
+			case 'O':
+				gameData.player = 'X';
+				$(this).addClass('O');
+				$(this).html('O');
+				$('.gameMessage').html('Welcome to Sparta TicTacToe!')
+			//oPlay();
+			break;
+		}
 	}
 	//$(this).data('num');
 })
